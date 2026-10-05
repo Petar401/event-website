@@ -6,6 +6,12 @@
   <title>Balkania — Music Events across the Balkans</title>
   <meta name="description" content="Upcoming and past music events in Bulgaria, Greece, Türkiye and Serbia — brass, folk, jazz, sacred and festival nights.">
   <meta name="theme-color" content="#16110F">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Balkania">
+  <meta property="og:title" content="Balkania — Music events across the Balkans">
+  <meta property="og:description" content="Brass in Serbia, bagpipes in the Rhodopes, rebetiko under the Acropolis, the ney in Konya. Spin the flags, pick your night, get your tickets.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&amp;fit=max&amp;q=75&amp;w=1200">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,11 +20,11 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <a class="skip-link" href="#upcoming">Skip to events</a>
+  <a class="skip-link" href="#upcoming" data-i18n="skip">Skip to events</a>
 
   <header class="site-header" id="site-header">
     <div class="container header-inner">
-      <a class="brand" href="#top" aria-label="Balkania home">
+      <a class="brand" href="#top" aria-label="Balkania home" data-i18n-aria="home">
         <img class="brand__mark" src="favicon.svg" alt="" width="36" height="36">
         <span class="brand__name">Balkania</span>
         <span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
@@ -35,6 +41,9 @@
           <li><a href="#past" data-i18n="nav_past">Past events</a></li>
           <li><a href="#rhythms" data-i18n="nav_rhythms">Rhythms</a></li>
           <li><a href="#about" data-i18n="nav_about">About</a></li>
+          <li class="nav__cta"><a href="#upcoming" class="btn btn--primary btn--sm">
+            <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M3 7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v2a2 2 0 0 0 0 4v2a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-2a2 2 0 0 0 0-4V7Zm11 0v2h2V7h-2Zm0 4v2h2v-2h-2Zm0 4v2h2v-2h-2Z"/></svg>
+            <span data-i18n="nav_tickets">Tickets</span></a></li>
         </ul>
         <label class="lang">
           <span class="visually-hidden" data-i18n="lang_label">Language</span>
@@ -56,12 +65,13 @@
     <!-- HERO + FLAG RING -->
     <section class="hero" aria-labelledby="hero-title">
       <div class="container hero__head">
+        <button type="button" class="next-up" id="next-up" hidden></button>
         <p class="kicker" data-i18n="hero_kicker">Music across the Balkans</p>
         <h1 id="hero-title" class="hero__title" data-i18n="hero_title">Four flags. One rhythm.</h1>
         <p class="hero__sub" data-i18n="hero_sub">Brass in Serbia, bagpipes in the Rhodopes, rebetiko under the Acropolis, the ney in Konya. Spin the flags and pick your night.</p>
       </div>
 
-      <div class="ring ring--flags" id="flag-ring" tabindex="0" role="listbox" aria-label="Countries">
+      <div class="ring ring--flags" id="flag-ring" tabindex="0" role="listbox" aria-label="Countries" data-i18n-aria="countries_label">
         <ul class="ring__stage" id="flag-stage"></ul>
       </div>
       <div class="ring-controls container">
@@ -189,6 +199,8 @@
       <p class="footer-copy">© <span id="year">2026</span> Balkania</p>
     </div>
   </footer>
+
+  <dialog class="tix" id="ticket-dialog" aria-labelledby="tix-title"></dialog>
 
   <script src="js/data.js"></script>
   <script src="js/ring.js"></script>
