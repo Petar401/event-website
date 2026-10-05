@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Balkania — Music Events across the Balkans</title>
+  <meta name="description" content="Upcoming and past music events in Bulgaria, Greece, Türkiye and Serbia — brass, folk, jazz, sacred and festival nights.">
+  <meta name="theme-color" content="#16110F">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,500;0,700;0,800;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#upcoming">Skip to events</a>
+
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="Balkania home">
+        <img class="brand__mark" src="favicon.svg" alt="" width="36" height="36">
+        <span class="brand__name">Balkania</span>
+        <span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      </a>
+
+      <button class="hamburger" id="hamburger" type="button" aria-controls="primary-nav" aria-expanded="false">
+        <span class="hamburger__box" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="visually-hidden" data-i18n="menu">Menu</span>
+      </button>
+
+      <nav class="nav" id="primary-nav" aria-label="Primary">
+        <ul class="nav__list">
+          <li><a href="#upcoming" data-i18n="nav_upcoming">Upcoming</a></li>
+          <li><a href="#past" data-i18n="nav_past">Past events</a></li>
+          <li><a href="#rhythms" data-i18n="nav_rhythms">Rhythms</a></li>
+          <li><a href="#about" data-i18n="nav_about">About</a></li>
+        </ul>
+        <label class="lang">
+          <span class="visually-hidden" data-i18n="lang_label">Language</span>
+          <svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm6.9 6h-2.9a15.7 15.7 0 0 0-1.4-3.6A8 8 0 0 1 18.9 8ZM12 4c.8 1.2 1.5 2.5 1.9 4h-3.8c.4-1.5 1.1-2.8 1.9-4ZM4.3 14a8.3 8.3 0 0 1 0-4h3.3a16.5 16.5 0 0 0 0 4H4.3Zm.8 2h2.9c.3 1.3.8 2.5 1.4 3.6A8 8 0 0 1 5.1 16ZM8 8H5.1a8 8 0 0 1 4.3-3.6C8.8 5.5 8.3 6.7 8 8Zm4 12c-.8-1.2-1.5-2.5-1.9-4h3.8c-.4 1.5-1.1 2.8-1.9 4Zm2.3-6H9.7a14.7 14.7 0 0 1 0-4h4.6a14.7 14.7 0 0 1 0 4Zm.3 5.6c.6-1.1 1.1-2.3 1.4-3.6h2.9a8 8 0 0 1-4.3 3.6Zm1.8-5.6a16.5 16.5 0 0 0 0-4h3.3a8.3 8.3 0 0 1 0 4h-3.3Z"/></svg>
+          <select id="lang-select">
+            <option value="en">English</option>
+            <option value="bg">Български</option>
+            <option value="el">Ελληνικά</option>
+            <option value="tr">Türkçe</option>
+            <option value="sr">Српски</option>
+          </select>
+        </label>
+      </nav>
+    </div>
+  </header>
+  <div class="nav-scrim" id="nav-scrim" hidden></div>
+
+  <main id="top">
+    <!-- HERO + FLAG RING -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container hero__head">
+        <p class="kicker" data-i18n="hero_kicker">Music across the Balkans</p>
+        <h1 id="hero-title" class="hero__title" data-i18n="hero_title">Four flags. One rhythm.</h1>
+        <p class="hero__sub" data-i18n="hero_sub">Brass in Serbia, bagpipes in the Rhodopes, rebetiko under the Acropolis, the ney in Konya. Spin the flags and pick your night.</p>
+      </div>
+
+      <div class="ring ring--flags" id="flag-ring" tabindex="0" role="listbox" aria-label="Countries">
+        <ul class="ring__stage" id="flag-stage"></ul>
+      </div>
+      <div class="ring-controls container">
+        <button class="arrow-btn" id="flag-prev" type="button" data-i18n-aria="prev" aria-label="Previous">
+          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M15 5 8 12l7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="dots" id="flag-dots"></div>
+        <button class="arrow-btn" id="flag-next" type="button" data-i18n-aria="next" aria-label="Next">
+          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="m9 5 7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+      <p class="hint" data-i18n="hint">← → keys · drag · swipe · scroll</p>
+
+      <div class="greeting container" id="greeting" aria-live="polite">
+        <p class="greeting__hello" id="greeting-hello">Добре дошли</p>
+        <p class="greeting__meta" id="greeting-meta"></p>
+        <div class="greeting__actions">
+          <button class="btn btn--primary" id="show-country" type="button"></button>
+          <button class="btn btn--ghost" id="hero-rhythm" type="button" aria-pressed="false">
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>
+            <span data-i18n="cta_rhythm">Play the rhythm</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <div class="ornament" aria-hidden="true"></div>
+
+    <!-- FILTER -->
+    <div class="container filter" role="group" data-i18n-aria="filter_label" aria-label="Filter by country">
+      <span class="filter__label" data-i18n="filter_label">Filter by country</span>
+      <div class="chips" id="chips"></div>
+    </div>
+
+    <!-- UPCOMING -->
+    <section class="events" id="upcoming" aria-labelledby="upcoming-title" data-kind="upcoming">
+      <div class="container section-head">
+        <p class="kicker" data-i18n="upcoming_kicker">Coming soon</p>
+        <h2 id="upcoming-title" class="section-title" data-i18n="upcoming_title">Upcoming events</h2>
+        <p class="section-sub" data-i18n="upcoming_sub">Pick an event and it spins to the front.</p>
+      </div>
+      <div class="ring ring--events" id="upcoming-ring" tabindex="0" role="listbox" aria-labelledby="upcoming-title">
+        <ul class="ring__stage"></ul>
+      </div>
+      <p class="empty container" hidden data-i18n="empty">No events here for this country yet. Try another flag.</p>
+      <div class="ring-controls container">
+        <button class="arrow-btn" id="upcoming-prev" type="button" data-i18n-aria="prev" aria-label="Previous">
+          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M15 5 8 12l7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="dots" id="upcoming-dots"></div>
+        <button class="arrow-btn" id="upcoming-next" type="button" data-i18n-aria="next" aria-label="Next">
+          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="m9 5 7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+      <div class="container"><article class="detail" id="upcoming-detail" aria-live="polite"></article></div>
+    </section>
+
+    <div class="ornament ornament--flip" aria-hidden="true"></div>
+
+    <!-- PAST -->
+    <section class="events events--past" id="past" aria-labelledby="past-title" data-kind="past">
+      <div class="container section-head">
+        <p class="kicker" data-i18n="past_kicker">Encore</p>
+        <h2 id="past-title" class="section-title" data-i18n="past_title">Past events</h2>
+        <p class="section-sub" data-i18n="past_sub">Nights we are still humming.</p>
+      </div>
+      <div class="ring ring--events" id="past-ring" tabindex="0" role="listbox" aria-labelledby="past-title">
+        <ul class="ring__stage"></ul>
+      </div>
+      <p class="empty container" hidden data-i18n="empty">No events here for this country yet. Try another flag.</p>
+      <div class="ring-controls container">
+        <button class="arrow-btn" id="past-prev" type="button" data-i18n-aria="prev" aria-label="Previous">
+          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M15 5 8 12l7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="dots" id="past-dots"></div>
+        <button class="arrow-btn" id="past-next" type="button" data-i18n-aria="next" aria-label="Next">
+          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="m9 5 7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+      <div class="container"><article class="detail" id="past-detail" aria-live="polite"></article></div>
+    </section>
+
+    <!-- RHYTHMS (surprise) -->
+    <section class="rhythms" id="rhythms" aria-labelledby="rhythms-title">
+      <div class="container section-head">
+        <p class="kicker" data-i18n="rhythms_kicker">Surprise</p>
+        <h2 id="rhythms-title" class="section-title" data-i18n="rhythms_title">Feel the Balkan beat</h2>
+        <p class="section-sub" data-i18n="rhythms_sub">Balkan music loves odd meters. Tap a country to hear its signature dance rhythm, played live in your browser.</p>
+      </div>
+      <div class="container rhythm-grid" id="rhythm-grid"></div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about" id="about" aria-labelledby="about-title">
+      <div class="container about__inner">
+        <div>
+          <h2 id="about-title" class="section-title" data-i18n="about_title">About Balkania</h2>
+          <p class="about__text" data-i18n="about_text">Balkania is a love letter to the music of Bulgaria, Greece, Türkiye and Serbia, from village gatherings to festival stages. The events on this page are samples for a demo site.</p>
+        </div>
+        <form class="newsletter" id="newsletter" novalidate>
+          <label for="email" class="newsletter__label" data-i18n="newsletter_label">Get the next lineup in your inbox</label>
+          <div class="newsletter__row">
+            <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+            <button class="btn btn--primary" type="submit" data-i18n="newsletter_btn">Subscribe</button>
+          </div>
+          <p class="newsletter__thanks" id="newsletter-thanks" role="status" hidden></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="ornament" aria-hidden="true"></div>
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="favicon.svg" alt="" width="32" height="32">
+        <span>Balkania</span>
+        <span class="footer-flags" id="footer-flags" aria-hidden="true"></span>
+      </div>
+      <p class="footer-note" data-i18n="footer_sample">All events are fictional samples for demonstration.</p>
+      <details class="credits">
+        <summary data-i18n="footer_photos">Photos from Unsplash</summary>
+        <ul id="credits-list"></ul>
+      </details>
+      <p class="footer-copy">© <span id="year">2026</span> Balkania</p>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/ring.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
