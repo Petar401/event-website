@@ -1,0 +1,2 @@
+# The POS app in pos/ is its own Vercel project (Root Directory "pos"); keep it out of the static site.
+/pos

@@ -2,6 +2,8 @@
 
 A static, no-build website for music events in **Bulgaria, Greece, Türkiye and Serbia**.
 
+> **Also in this repo:** [`pos/`](pos/README.md) holds **Tilda**, an AI-native point of sale (Next.js + Supabase) with a built-in MCP server for Claude, ChatGPT and Perplexity. It is a separate app and a separate Vercel project (Root Directory `pos`), and it doesn't affect this static site.
+
 - **Flag ring** at the top: the four flags on a rotating 3D ring, with a greeting in each language.
 - **Upcoming** and **Past** events. Each section is a 3D ring carousel, and events are split automatically by date. When an upcoming event ends, it moves to *Past* without any edits.
 - **The chosen item is always in front and on top.** Control it with arrow keys (← →, Home/End), click, mouse drag, mouse wheel or trackpad scroll, touch swipe, or the arrow and dot buttons.
