@@ -1,0 +1,37 @@
+{
+  "name": "tilda-pos",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Tilda — an AI-native point of sale with a built-in MCP connector for Claude, ChatGPT, Perplexity and friends.",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "smoke:mcp": "tsx scripts/mcp-smoke.ts",
+    "seed:supabase": "tsx scripts/seed-supabase.ts"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "0.132.0",
+    "@supabase/supabase-js": "2.117.3",
+    "jose": "6.2.12",
+    "next": "15.5.27",
+    "qrcode": "1.5.4",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "zod": "4.3.3"
+  },
+  "devDependencies": {
+    "@modelcontextprotocol/sdk": "1.32.1",
+    "@tailwindcss/postcss": "4.3.3",
+    "@types/node": "22.20.5",
+    "@types/qrcode": "1.5.6",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.2.3",
+    "tailwindcss": "4.3.3",
+    "tsx": "4.23.15",
+    "typescript": "5.9.3",
+    "vitest": "3.2.7"
+  }
+}
